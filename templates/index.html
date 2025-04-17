@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center mb-4">
+    <h1 class="display-4">music tool stuff</h1>
+    <p class="lead">random music tools that may actually be useful</p>
+    <hr class="my-4">
+    <p>enjoy it !!</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-clock tool-icon"></i> Metronome
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">make sure you have right time</h5>
+                <p class="card-text">
+                    this metronome helps you keep time with notes and stuff!!!
+                </p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">Adjustable tempo from 30 to 300 BPM</li>
+                    <li class="list-group-item">Visual beat indicators</li>
+                    <li class="list-group-item">Tap tempo functionality</li>
+                    <li class="list-group-item">Different time signatures (2/4, 3/4, 4/4, etc.)</li>
+                </ul>
+                <a href="/metronome" class="btn btn-primary">Open Metronome</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-music tool-icon"></i> piano
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">learn piano notes peak</h5>
+                <p class="card-text">
+                    explore musical notes, scales, and chords with interactive audio playback!!!
+                </p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">Interactive piano keyboard</li>
+                    <li class="list-group-item">Scale and chord explorer</li>
+                    <li class="list-group-item">Audio playback for all notes</li>
+                    <li class="list-group-item">Detailed note information</li>
+                </ul>
+                <a href="/notes" class="btn btn-primary">Open Notes Reference</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info mt-4">
+    <p><strong>Note:</strong> this kinda sucks and is not meant for pro so plz don't try be pro with this</p>
+</div>
+{% endblock %}
