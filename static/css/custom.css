@@ -1,0 +1,300 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    font-weight: bold;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.tool-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.beat {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--bs-secondary);
+    margin: 0 5px;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+.beat.active {
+    background-color: var(--bs-primary);
+    transform: scale(1.2);
+}
+
+#visualMetronome {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#tempoMarkings {
+    font-style: italic;
+    color: var(--bs-info);
+}
+
+
+.piano-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+.piano {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 120px;
+    min-width: 100%;
+}
+
+.octave {
+    display: flex;
+    position: relative;
+    width: 350px;
+}
+
+.white-key {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 1;
+    margin: 0 1px;
+    border-radius: 0 0 5px 5px;
+    transition: background-color 0.2s;
+}
+
+.black-key {
+    position: absolute;
+    width: 30px;
+    height: 70px;
+    background-color: #333;
+    color: white;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 0 5px 5px;
+    transition: background-color 0.2s;
+}
+
+.white-key:hover {
+    background-color: #f0f0f0;
+}
+
+.black-key:hover {
+    background-color: #555;
+}
+
+.white-key.active {
+    background-color: #e6f7ff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.black-key.active {
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.octave > .black-key:nth-of-type(2) {
+    left: calc(1 * (100% / 7) - 15px);
+}
+.octave > .black-key:nth-of-type(4) {
+    left: calc(2 * (100% / 7) - 15px);
+}
+.octave > .black-key:nth-of-type(7) {
+    left: calc(4 * (100% / 7) - 15px);
+}
+.octave > .black-key:nth-of-type(9) {
+    left: calc(5 * (100% / 7) - 15px);
+}
+.octave > .black-key:nth-of-type(11) {
+    left: calc(6 * (100% / 7) - 15px);
+}
+
+.notes-display {
+    text-align: center;
+    padding: 20px;
+}
+
+#current-note {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--bs-primary);
+    margin-bottom: 0;
+    transition: color 0.3s;
+}
+
+#note-frequency {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.note-controls {
+    margin: 30px 0;
+}
+
+.note-information {
+    margin: 20px 0;
+}
+
+.note-info-box {
+    line-height: 1.6;
+}
+
+.note-info-box h5 {
+    color: var(--bs-primary);
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--bs-secondary);
+    padding-bottom: 8px;
+}
+
+.note-info-box p {
+    margin-bottom: 12px;
+}
+
+.note-info-box strong {
+    color: var(--bs-light);
+}
+
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--bs-primary);
+    padding-bottom: 8px;
+}
+
+.section-header i {
+    color: var(--bs-primary);
+    font-size: 1.2rem;
+}
+
+.section-header h4 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.scale-container, .chord-container {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.scale-item, .chord-item {
+    background-color: rgba(42, 42, 50, 0.8);
+    color: var(--bs-light);
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--bs-dark);
+    min-width: 200px;
+    text-align: center;
+}
+
+.scale-item:hover, .chord-item:hover {
+    background-color: var(--bs-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scale-name, .chord-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.scale-notes, .chord-notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    justify-content: center;
+}
+
+.note-badge {
+    display: inline-block;
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.scale-item.playing, .chord-item.playing {
+    background-color: var(--bs-success);
+    color: white;
+}
+
+@keyframes playing {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.playing {
+    animation: playing 0.5s ease;
+    color: var(--bs-success);
+}
+
+@media (max-width: 576px) {
+    #current-note {
+        font-size: 3rem;
+    }
+    
+    .piano {
+        height: 100px;
+    }
+    
+    .white-key {
+        height: 100px;
+    }
+    
+    .black-key {
+        height: 60px;
+    }
+    
+}
