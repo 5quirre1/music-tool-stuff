@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+
+{% block title %}piano real{% endblock %}
+
+{% block head %}
+<meta name="description" content="piano for playing wwith and notes real">
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <i class="fas fa-music tool-icon"></i> piano notes
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="notes-display">
+                    <h1 id="current-note">Choose a Note</h1>
+                    <p id="note-frequency" class="text-muted">— Hz</p>
+                    
+                    <div class="piano-container mb-4">
+                        <div class="piano">
+                            <div class="octave" id="octave-4">
+                                <div class="white-key" data-note="C4">C</div>
+                                <div class="black-key" data-note="C#4">C#</div>
+                                <div class="white-key" data-note="D4">D</div>
+                                <div class="black-key" data-note="D#4">D#</div>
+                                <div class="white-key" data-note="E4">E</div>
+                                <div class="white-key" data-note="F4">F</div>
+                                <div class="black-key" data-note="F#4">F#</div>
+                                <div class="white-key" data-note="G4">G</div>
+                                <div class="black-key" data-note="G#4">G#</div>
+                                <div class="white-key" data-note="A4">A</div>
+                                <div class="black-key" data-note="A#4">A#</div>
+                                <div class="white-key" data-note="B4">B</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-controls mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <label for="note-select" class="form-label">Select Note:</label>
+                                <select id="note-select" class="form-select">
+                                    <option value="">Choose a note...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="octave-select" class="form-label">Octave:</label>
+                                <select id="octave-select" class="form-select">
+                                    <option value="1">Octave 1 (Low)</option>
+                                    <option value="2">Octave 2</option>
+                                    <option value="3">Octave 3</option>
+                                    <option value="4" selected>Octave 4 (Middle)</option>
+                                    <option value="5">Octave 5</option>
+                                    <option value="6">Octave 6 (High)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button id="play-note" class="btn btn-success mt-4">
+                                    <i class="fas fa-play"></i> Play Note
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-information">
+                        <div class="card bg-dark">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-info-circle me-2"></i>note Info
+                            </div>
+                            <div class="card-body">
+                                <div id="note-info-content" class="note-info-box">
+                                    <p class="text-center text-muted">Select a note to see information</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="scales-section mt-4">
+                        <div class="section-header">
+                            <i class="fas fa-stream me-2"></i>
+                            <h4>Common Scales with This Note</h4>
+                        </div>
+                        <div id="scales-container" class="text-center text-muted">
+                            <p>Select a note to see scales</p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="chords-section mt-4">
+                        <div class="section-header">
+                            <i class="fas fa-layer-group me-2"></i>
+                            <h4>Common Chords with This Note</h4>
+                        </div>
+                        <div id="chords-container" class="text-center text-muted">
+                            <p>Select a note to see chords</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion mt-4" id="accordionInstructions">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructions">
+                                How to Use the Notes Reference
+                            </button>
+                        </h2>
+                        <div id="collapseInstructions" class="accordion-collapse collapse" data-bs-parent="#accordionInstructions">
+                            <div class="accordion-body">
+                                <ol>
+                                    <li>Click on a piano key or select a note from the dropdown menu.</li>
+                                    <li>Choose the octave to explore different pitch ranges.</li>
+                                    <li>Click the Play button to hear the selected note.</li>
+                                    <li>View detailed information about the note, including its frequency and common uses.</li>
+                                    <li>Explore common scales and chords that include the selected note.</li>
+                                </ol>
+                                <div class="alert alert-info">
+                                    <strong>Tip:</strong> Middle C on a piano is C4. The standard tuning reference note, A440, is A4.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+{% endblock %}
